@@ -7,7 +7,7 @@
     <title>Luxe Voyage | Premium Luxury Travel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+Armenian:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0E3B43;
@@ -37,15 +37,16 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans Armenian', sans-serif;
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: opacity 0.2s ease;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Noto Sans Armenian', sans-serif;
             font-weight: 600;
             line-height: 1.2;
             color: var(--primary);
@@ -75,7 +76,7 @@
             align-items: center;
             justify-content: center;
             padding: 14px 32px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Noto Sans Armenian', sans-serif;
             font-weight: 500;
             font-size: 0.95rem;
             border-radius: var(--radius-full);
@@ -173,7 +174,7 @@
         }
 
         .logo {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Noto Sans Armenian', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--white);
@@ -236,6 +237,45 @@
 
         .header.scrolled .icon-btn {
             color: var(--primary);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 4px;
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header.scrolled .lang-switcher {
+            background: rgba(14, 59, 67, 0.05);
+            border: 1px solid rgba(14, 59, 67, 0.1);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', 'Noto Sans Armenian', sans-serif;
+        }
+
+        .header.scrolled .lang-btn {
+            color: var(--muted);
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
         }
 
         .mobile-toggle {
@@ -351,7 +391,7 @@
             padding: 12px 16px;
             border: 1px solid #e0e0e0;
             border-radius: var(--radius-sm);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans Armenian', sans-serif;
             font-size: 0.95rem;
             color: var(--text);
             background: var(--white);
@@ -438,7 +478,7 @@
         }
 
         .price {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Noto Sans Armenian', sans-serif;
             font-weight: 600;
             color: var(--secondary);
             font-size: 1.1rem;
@@ -862,7 +902,7 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Noto Sans Armenian', sans-serif;
             font-weight: 600;
             color: var(--primary);
             transition: var(--transition);
@@ -888,7 +928,7 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 200px;
+            max-height: 300px;
             padding: 0 32px 24px;
         }
 
@@ -1045,7 +1085,7 @@
             border: none;
             background: rgba(255, 255, 255, 0.1);
             color: var(--white);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans Armenian', sans-serif;
             outline: none;
         }
 
@@ -1123,6 +1163,7 @@
                 box-shadow: var(--shadow-lg);
                 transition: var(--transition);
                 align-items: flex-start;
+                z-index: 1000;
             }
             .nav-menu.active { right: 0; }
             .nav-link { color: var(--text); font-size: 1.1rem; }
@@ -1153,24 +1194,26 @@
             <a href="#" class="logo">LUXE VOYAGE</a>
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#destinations" class="nav-link">Destinations</a></li>
-                    <li><a href="#tours" class="nav-link">Tours</a></li>
-                    <li><a href="#flights" class="nav-link">Flights</a></li>
-                    <li><a href="#hotels" class="nav-link">Hotels</a></li>
-                    <li><a href="#visa" class="nav-link">Visa</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#destinations" class="nav-link" data-i18n="nav_destinations">Destinations</a></li>
+                    <li><a href="#tours" class="nav-link" data-i18n="nav_tours">Tours</a></li>
+                    <li><a href="#flights" class="nav-link" data-i18n="nav_flights">Flights</a></li>
+                    <li><a href="#hotels" class="nav-link" data-i18n="nav_hotels">Hotels</a></li>
+                    <li><a href="#visa" class="nav-link" data-i18n="nav_visa">Visa</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
                 <button class="icon-btn" aria-label="Search">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </button>
-                <button class="icon-btn" aria-label="Language">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                </button>
-                <a href="#book" class="btn btn-primary">Book Now</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="hy">HY</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+                <a href="#book" class="btn btn-primary" data-i18n="btn_book_now">Book Now</a>
                 <div class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -1185,38 +1228,38 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Discover the World's Most Exclusive Destinations</h1>
-            <p>Curated luxury travel experiences for the discerning explorer. Unforgettable journeys begin here.</p>
+            <h1 data-i18n="hero_title">Discover the World's Most Exclusive Destinations</h1>
+            <p data-i18n="hero_subtitle">Curated luxury travel experiences for the discerning explorer. Unforgettable journeys begin here.</p>
             <div class="hero-buttons">
-                <a href="#tours" class="btn btn-primary">Explore Tours</a>
+                <a href="#tours" class="btn btn-primary" data-i18n="btn_explore_tours">Explore Tours</a>
                 <a href="#video" class="btn btn-secondary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                    Watch Video
+                    <span data-i18n="btn_watch_video">Watch Video</span>
                 </a>
             </div>
             <div class="booking-box floating">
                 <div class="form-group">
-                    <label for="destination">Destination</label>
-                    <input type="text" id="destination" placeholder="Where to?">
+                    <label for="destination" data-i18n="label_destination">Destination</label>
+                    <input type="text" id="destination" data-i18n-placeholder="placeholder_destination" placeholder="Where to?">
                 </div>
                 <div class="form-group">
-                    <label for="departure">Departure</label>
+                    <label for="departure" data-i18n="label_departure">Departure</label>
                     <input type="date" id="departure">
                 </div>
                 <div class="form-group">
-                    <label for="return">Return</label>
+                    <label for="return" data-i18n="label_return">Return</label>
                     <input type="date" id="return">
                 </div>
                 <div class="form-group">
-                    <label for="guests">Guests</label>
+                    <label for="guests" data-i18n="label_guests">Guests</label>
                     <select id="guests">
-                        <option>1 Guest</option>
-                        <option>2 Guests</option>
-                        <option>3 Guests</option>
-                        <option>4+ Guests</option>
+                        <option data-i18n="opt_1_guest">1 Guest</option>
+                        <option data-i18n="opt_2_guests">2 Guests</option>
+                        <option data-i18n="opt_3_guests">3 Guests</option>
+                        <option data-i18n="opt_4_guests">4+ Guests</option>
                     </select>
                 </div>
-                <button class="btn btn-primary" style="height: 46px;">Search</button>
+                <button class="btn btn-primary" style="height: 46px;" data-i18n="btn_search">Search</button>
             </div>
         </div>
     </section>
@@ -1225,49 +1268,49 @@
     <section class="section-padding" id="destinations">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Popular Destinations</h2>
-                <p>Explore our handpicked selection of the world's most sought-after luxury destinations.</p>
+                <h2 data-i18n="sec_popular_destinations_title">Popular Destinations</h2>
+                <p data-i18n="sec_popular_destinations_subtitle">Explore our handpicked selection of the world's most sought-after luxury destinations.</p>
             </div>
             <div class="destinations-grid">
                 <article class="destination-card reveal">
                     <div class="destination-img">
                         <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=800&q=80" alt="Santorini, Greece" loading="lazy">
-                        <span class="destination-badge">Trending</span>
+                        <span class="destination-badge" data-i18n="badge_trending">Trending</span>
                     </div>
                     <div class="destination-info">
-                        <h3>Santorini, Greece</h3>
-                        <p>Whitewashed villages, stunning sunsets, and crystal-clear Aegean waters await.</p>
+                        <h3 data-i18n="dest_santorini_title">Santorini, Greece</h3>
+                        <p data-i18n="dest_santorini_desc">Whitewashed villages, stunning sunsets, and crystal-clear Aegean waters await.</p>
                         <div class="destination-footer">
-                            <span class="price">From $2,499 <span>/ person</span></span>
-                            <button class="btn btn-outline" style="padding: 8px 20px; font-size: 0.85rem;">Book</button>
+                            <span class="price"><span data-i18n="dest_santorini_price">From $2,499</span> <span data-i18n="per_person">/ person</span></span>
+                            <button class="btn btn-outline" style="padding: 8px 20px; font-size: 0.85rem;" data-i18n="btn_book">Book</button>
                         </div>
                     </div>
                 </article>
                 <article class="destination-card reveal">
                     <div class="destination-img">
                         <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Maldives" loading="lazy">
-                        <span class="destination-badge">Luxury</span>
+                        <span class="destination-badge" data-i18n="badge_luxury">Luxury</span>
                     </div>
                     <div class="destination-info">
-                        <h3>Malé, Maldives</h3>
-                        <p>Private overwater villas and pristine coral reefs in the ultimate tropical paradise.</p>
+                        <h3 data-i18n="dest_maldives_title">Malé, Maldives</h3>
+                        <p data-i18n="dest_maldives_desc">Private overwater villas and pristine coral reefs in the ultimate tropical paradise.</p>
                         <div class="destination-footer">
-                            <span class="price">From $3,899 <span>/ person</span></span>
-                            <button class="btn btn-outline" style="padding: 8px 20px; font-size: 0.85rem;">Book</button>
+                            <span class="price"><span data-i18n="dest_maldives_price">From $3,899</span> <span data-i18n="per_person">/ person</span></span>
+                            <button class="btn btn-outline" style="padding: 8px 20px; font-size: 0.85rem;" data-i18n="btn_book">Book</button>
                         </div>
                     </div>
                 </article>
                 <article class="destination-card reveal">
                     <div class="destination-img">
                         <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Kyoto, Japan" loading="lazy">
-                        <span class="destination-badge">Cultural</span>
+                        <span class="destination-badge" data-i18n="badge_cultural">Cultural</span>
                     </div>
                     <div class="destination-info">
-                        <h3>Kyoto, Japan</h3>
-                        <p>Ancient temples, traditional ryokans, and the serene beauty of cherry blossom season.</p>
+                        <h3 data-i18n="dest_kyoto_title">Kyoto, Japan</h3>
+                        <p data-i18n="dest_kyoto_desc">Ancient temples, traditional ryokans, and the serene beauty of cherry blossom season.</p>
                         <div class="destination-footer">
-                            <span class="price">From $2,899 <span>/ person</span></span>
-                            <button class="btn btn-outline" style="padding: 8px 20px; font-size: 0.85rem;">Book</button>
+                            <span class="price"><span data-i18n="dest_kyoto_price">From $2,899</span> <span data-i18n="per_person">/ person</span></span>
+                            <button class="btn btn-outline" style="padding: 8px 20px; font-size: 0.85rem;" data-i18n="btn_book">Book</button>
                         </div>
                     </div>
                 </article>
@@ -1279,8 +1322,8 @@
     <section class="section-padding" style="background: var(--white);" id="tours">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Featured Luxury Tours</h2>
-                <p>Immersive, all-inclusive journeys designed for comfort, discovery, and elegance.</p>
+                <h2 data-i18n="sec_featured_tours_title">Featured Luxury Tours</h2>
+                <p data-i18n="sec_featured_tours_subtitle">Immersive, all-inclusive journeys designed for comfort, discovery, and elegance.</p>
             </div>
             <div class="tours-grid">
                 <article class="tour-card reveal">
@@ -1292,24 +1335,24 @@
                         </div>
                     </div>
                     <div class="tour-content">
-                        <h3>Swiss Alps Premium Retreat</h3>
+                        <h3 data-i18n="tour_swiss_title">Swiss Alps Premium Retreat</h3>
                         <div class="tour-meta">
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                7 Days
+                                <span data-i18n="tour_swiss_days">7 Days</span>
                             </span>
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                5-Star Hotel
+                                <span data-i18n="tour_swiss_hotel">5-Star Hotel</span>
                             </span>
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-                                All Meals
+                                <span data-i18n="tour_swiss_meals">All Meals</span>
                             </span>
                         </div>
                         <div class="tour-footer">
-                            <span class="price">$4,200</span>
-                            <button class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Book Now</button>
+                            <span class="price" data-i18n="tour_swiss_price">$4,200</span>
+                            <button class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;" data-i18n="btn_book_now">Book Now</button>
                         </div>
                     </div>
                 </article>
@@ -1322,24 +1365,24 @@
                         </div>
                     </div>
                     <div class="tour-content">
-                        <h3>African Safari Luxury Camp</h3>
+                        <h3 data-i18n="tour_safari_title">African Safari Luxury Camp</h3>
                         <div class="tour-meta">
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                10 Days
+                                <span data-i18n="tour_safari_days">10 Days</span>
                             </span>
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                Luxury Tents
+                                <span data-i18n="tour_safari_hotel">Luxury Tents</span>
                             </span>
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                                Flight Inc.
+                                <span data-i18n="tour_safari_flight">Flight Included</span>
                             </span>
                         </div>
                         <div class="tour-footer">
-                            <span class="price">$5,800</span>
-                            <button class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Book Now</button>
+                            <span class="price" data-i18n="tour_safari_price">$5,800</span>
+                            <button class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;" data-i18n="btn_book_now">Book Now</button>
                         </div>
                     </div>
                 </article>
@@ -1352,24 +1395,24 @@
                         </div>
                     </div>
                     <div class="tour-content">
-                        <h3>Caribbean Private Yacht</h3>
+                        <h3 data-i18n="tour_caribbean_title">Caribbean Private Yacht</h3>
                         <div class="tour-meta">
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                5 Days
+                                <span data-i18n="tour_caribbean_days">5 Days</span>
                             </span>
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                Private Yacht
+                                <span data-i18n="tour_caribbean_yacht">Private Yacht</span>
                             </span>
                             <span class="tour-meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-                                Full Board
+                                <span data-i18n="tour_caribbean_board">Full Board</span>
                             </span>
                         </div>
                         <div class="tour-footer">
-                            <span class="price">$6,500</span>
-                            <button class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Book Now</button>
+                            <span class="price" data-i18n="tour_caribbean_price">$6,500</span>
+                            <button class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;" data-i18n="btn_book_now">Book Now</button>
                         </div>
                     </div>
                 </article>
@@ -1381,51 +1424,51 @@
     <section class="section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Why Choose Luxe Voyage</h2>
-                <p>We deliver exceptional service and unparalleled attention to detail for every journey.</p>
+                <h2 data-i18n="sec_why_choose_title">Why Choose Luxe Voyage</h2>
+                <p data-i18n="sec_why_choose_subtitle">We deliver exceptional service and unparalleled attention to detail for every journey.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card reveal">
                     <div class="feature-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                     </div>
-                    <h3>Licensed Agency</h3>
-                    <p>Fully certified and accredited by international travel associations for your peace of mind.</p>
+                    <h3 data-i18n="feature_licensed_title">Licensed Agency</h3>
+                    <p data-i18n="feature_licensed_desc">Fully certified and accredited by international travel associations for your peace of mind.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                     </div>
-                    <h3>Best Price Guarantee</h3>
-                    <p>We match any comparable luxury travel quote, ensuring you receive the ultimate value.</p>
+                    <h3 data-i18n="feature_price_title">Best Price Guarantee</h3>
+                    <p data-i18n="feature_price_desc">We match any comparable luxury travel quote, ensuring you receive the ultimate value.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     </div>
-                    <h3>Visa Support</h3>
-                    <p>End-to-end assistance with visa applications, documentation, and embassy appointments.</p>
+                    <h3 data-i18n="feature_visa_title">Visa Support</h3>
+                    <p data-i18n="feature_visa_desc">End-to-end assistance with visa applications, documentation, and embassy appointments.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                     </div>
-                    <h3>24/7 Global Support</h3>
-                    <p>Round-the-clock concierge service to assist you anywhere in the world, anytime.</p>
+                    <h3 data-i18n="feature_support_title">24/7 Global Support</h3>
+                    <p data-i18n="feature_support_desc">Round-the-clock concierge service to assist you anywhere in the world, anytime.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                     </div>
-                    <h3>Secure Payments</h3>
-                    <p>Bank-level encryption and multiple secure payment options for complete transaction safety.</p>
+                    <h3 data-i18n="feature_payment_title">Secure Payments</h3>
+                    <p data-i18n="feature_payment_desc">Bank-level encryption and multiple secure payment options for complete transaction safety.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
-                    <h3>Trusted Partners</h3>
-                    <p>Exclusive collaborations with world-renowned hotels, airlines, and local guides.</p>
+                    <h3 data-i18n="feature_partners_title">Trusted Partners</h3>
+                    <p data-i18n="feature_partners_desc">Exclusive collaborations with world-renowned hotels, airlines, and local guides.</p>
                 </div>
             </div>
         </div>
@@ -1435,24 +1478,24 @@
     <section class="section-padding" style="background: var(--white);">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Special Offers</h2>
-                <p>Exclusive deals and limited-time packages for your next unforgettable getaway.</p>
+                <h2 data-i18n="sec_offers_title">Special Offers</h2>
+                <p data-i18n="sec_offers_subtitle">Exclusive deals and limited-time packages for your next unforgettable getaway.</p>
             </div>
             <div class="offers-grid">
                 <div class="offer-card reveal">
                     <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Summer Deals" loading="lazy">
                     <div class="offer-content">
-                        <h3>Summer Early Bird</h3>
-                        <p>Save up to 25% on Mediterranean coastal retreats when you book 60 days in advance.</p>
-                        <button class="btn btn-primary">View Deals</button>
+                        <h3 data-i18n="offer_summer_title">Summer Early Bird</h3>
+                        <p data-i18n="offer_summer_desc">Save up to 25% on Mediterranean coastal retreats when you book 60 days in advance.</p>
+                        <button class="btn btn-primary" data-i18n="offer_summer_btn">View Deals</button>
                     </div>
                 </div>
                 <div class="offer-card reveal">
                     <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80" alt="Family Packages" loading="lazy">
                     <div class="offer-content">
-                        <h3>Family Luxury Packages</h3>
-                        <p>Kids stay and eat free at select 5-star family resorts across the globe.</p>
-                        <button class="btn btn-primary">Explore</button>
+                        <h3 data-i18n="offer_family_title">Family Luxury Packages</h3>
+                        <p data-i18n="offer_family_desc">Kids stay and eat free at select 5-star family resorts across the globe.</p>
+                        <button class="btn btn-primary" data-i18n="offer_family_btn">Explore</button>
                     </div>
                 </div>
             </div>
@@ -1463,41 +1506,41 @@
     <section class="section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Travel by Category</h2>
-                <p>Find the perfect style of travel that matches your dreams and desires.</p>
+                <h2 data-i18n="sec_categories_title">Travel by Category</h2>
+                <p data-i18n="sec_categories_subtitle">Find the perfect style of travel that matches your dreams and desires.</p>
             </div>
             <div class="categories-grid">
                 <div class="category-item reveal">
                     <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=400&q=80" alt="Beach Holidays" loading="lazy">
-                    <div class="category-overlay"><h3>Beach Holidays</h3></div>
+                    <div class="category-overlay"><h3 data-i18n="cat_beach">Beach Holidays</h3></div>
                 </div>
                 <div class="category-item reveal">
                     <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&w=400&q=80" alt="Adventure" loading="lazy">
-                    <div class="category-overlay"><h3>Adventure</h3></div>
+                    <div class="category-overlay"><h3 data-i18n="cat_adventure">Adventure</h3></div>
                 </div>
                 <div class="category-item reveal">
                     <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80" alt="Luxury" loading="lazy">
-                    <div class="category-overlay"><h3>Luxury</h3></div>
+                    <div class="category-overlay"><h3 data-i18n="cat_luxury">Luxury</h3></div>
                 </div>
                 <div class="category-item reveal">
                     <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=400&q=80" alt="Family" loading="lazy">
-                    <div class="category-overlay"><h3>Family</h3></div>
+                    <div class="category-overlay"><h3 data-i18n="cat_family">Family</h3></div>
                 </div>
                 <div class="category-item reveal">
                     <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" alt="Business" loading="lazy">
-                    <div class="category-overlay"><h3>Business</h3></div>
+                    <div class="category-overlay"><h3 data-i18n="cat_business">Business</h3></div>
                 </div>
                 <div class="category-item reveal">
                     <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=400&q=80" alt="Cruises" loading="lazy">
-                    <div class="category-overlay"><h3>Cruises</h3></div>
+                    <div class="category-overlay"><h3 data-i18n="cat_cruises">Cruises</h3></div>
                 </div>
                 <div class="category-item reveal">
                     <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=400&q=80" alt="Honeymoon" loading="lazy">
-                    <div class="category-overlay"><h3>Honeymoon</h3></div>
+                    <div class="category-overlay"><h3 data-i18n="cat_honeymoon">Honeymoon</h3></div>
                 </div>
                 <div class="category-item reveal">
                     <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" alt="Mountain" loading="lazy">
-                    <div class="category-overlay"><h3>Mountain</h3></div>
+                    <div class="category-overlay"><h3 data-i18n="cat_mountain">Mountain</h3></div>
                 </div>
             </div>
         </div>
@@ -1507,20 +1550,20 @@
     <section class="section-padding" style="background: var(--white);">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Guest Experiences</h2>
-                <p>Hear from our discerning travelers about their unforgettable journeys with us.</p>
+                <h2 data-i18n="sec_reviews_title">Guest Experiences</h2>
+                <p data-i18n="sec_reviews_subtitle">Hear from our discerning travelers about their unforgettable journeys with us.</p>
             </div>
             <div class="reviews-slider reveal">
                 <div class="reviews-track" id="reviewsTrack">
                     <div class="review-card">
                         <div class="review-content">
                             <div class="review-stars">★★★★★</div>
-                            <p class="review-text">"Luxe Voyage orchestrated our honeymoon in the Maldives flawlessly. Every detail, from the private seaplane transfer to the candlelit dinner on the beach, was absolute perfection."</p>
+                            <p class="review-text" data-i18n="review_1_text">"Luxe Voyage orchestrated our honeymoon in the Maldives flawlessly. Every detail, from the private seaplane transfer to the candlelit dinner on the beach, was absolute perfection."</p>
                             <div class="review-author">
                                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Sarah Jenkins">
                                 <div class="review-author-info">
-                                    <h4>Sarah Jenkins</h4>
-                                    <p>United Kingdom</p>
+                                    <h4 data-i18n="review_1_name">Sarah Jenkins</h4>
+                                    <p data-i18n="review_1_country">United Kingdom</p>
                                 </div>
                             </div>
                         </div>
@@ -1528,12 +1571,12 @@
                     <div class="review-card">
                         <div class="review-content">
                             <div class="review-stars">★★★★★</div>
-                            <p class="review-text">"The level of personalized service is unmatched. Our family safari in Kenya was educational, thrilling, and luxurious beyond our expectations. Highly recommended!"</p>
+                            <p class="review-text" data-i18n="review_2_text">"The level of personalized service is unmatched. Our family safari in Kenya was educational, thrilling, and luxurious beyond our expectations. Highly recommended!"</p>
                             <div class="review-author">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Michael Ross">
                                 <div class="review-author-info">
-                                    <h4>Michael Ross</h4>
-                                    <p>United States</p>
+                                    <h4 data-i18n="review_2_name">Michael Ross</h4>
+                                    <p data-i18n="review_2_country">United States</p>
                                 </div>
                             </div>
                         </div>
@@ -1541,12 +1584,12 @@
                     <div class="review-card">
                         <div class="review-content">
                             <div class="review-stars">★★★★★</div>
-                            <p class="review-text">"From the moment we inquired about our Kyoto trip, the support was exceptional. The traditional ryokan they booked for us was a highlight of our entire year."</p>
+                            <p class="review-text" data-i18n="review_3_text">"From the moment we inquired about our Kyoto trip, the support was exceptional. The traditional ryokan they booked for us was a highlight of our entire year."</p>
                             <div class="review-author">
                                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Elena Müller">
                                 <div class="review-author-info">
-                                    <h4>Elena Müller</h4>
-                                    <p>Germany</p>
+                                    <h4 data-i18n="review_3_name">Elena Müller</h4>
+                                    <p data-i18n="review_3_country">Germany</p>
                                 </div>
                             </div>
                         </div>
@@ -1570,19 +1613,19 @@
             <div class="stats-grid">
                 <div class="stat-item reveal">
                     <h3 class="counter" data-target="15000">0</h3>
-                    <p>Happy Travelers</p>
+                    <p data-i18n="stat_travelers">Happy Travelers</p>
                 </div>
                 <div class="stat-item reveal">
                     <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Covered</p>
+                    <p data-i18n="stat_countries">Countries Covered</p>
                 </div>
                 <div class="stat-item reveal">
                     <h3 class="counter" data-target="850">0</h3>
-                    <p>Luxury Tours</p>
+                    <p data-i18n="stat_tours">Luxury Tours</p>
                 </div>
                 <div class="stat-item reveal">
                     <h3 class="counter" data-target="15">0</h3>
-                    <p>Years Experience</p>
+                    <p data-i18n="stat_years">Years Experience</p>
                 </div>
             </div>
         </div>
@@ -1592,7 +1635,7 @@
     <section class="section-padding" style="padding-bottom: 0;">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Follow Our Journey</h2>
+                <h2 data-i18n="sec_insta_title">Follow Our Journey</h2>
                 <p>@luxevoyage</p>
             </div>
         </div>
@@ -1640,44 +1683,44 @@
     <section class="section-padding" style="background: var(--white);">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Frequently Asked Questions</h2>
-                <p>Everything you need to know about booking your luxury getaway.</p>
+                <h2 data-i18n="sec_faq_title">Frequently Asked Questions</h2>
+                <p data-i18n="sec_faq_subtitle">Everything you need to know about booking your luxury getaway.</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <span>How far in advance should I book my luxury tour?</span>
+                        <span data-i18n="faq_1_q">How far in advance should I book my luxury tour?</span>
                         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
-                        <p>We recommend booking at least 3 to 6 months in advance for peak seasons and exclusive properties. However, we also specialize in curated last-minute luxury escapes.</p>
+                        <p data-i18n="faq_1_a">We recommend booking at least 3 to 6 months in advance for peak seasons and exclusive properties. However, we also specialize in curated last-minute luxury escapes.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <span>Are flights included in the tour packages?</span>
+                        <span data-i18n="faq_2_q">Are flights included in the tour packages?</span>
                         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
-                        <p>Many of our premium packages include international business or first-class flights. Package details clearly specify what is included, and we can customize any itinerary to add flight arrangements.</p>
+                        <p data-i18n="faq_2_a">Many of our premium packages include international business or first-class flights. Package details clearly specify what is included, and we can customize any itinerary to add flight arrangements.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <span>What is your cancellation policy?</span>
+                        <span data-i18n="faq_3_q">What is your cancellation policy?</span>
                         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
-                        <p>We offer flexible cancellation terms. Most bookings can be canceled up to 45 days before departure for a full refund, minus a small administrative fee. Travel insurance is highly recommended.</p>
+                        <p data-i18n="faq_3_a">We offer flexible cancellation terms. Most bookings can be canceled up to 45 days before departure for a full refund, minus a small administrative fee. Travel insurance is highly recommended.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <span>Do you provide visa assistance?</span>
+                        <span data-i18n="faq_4_q">Do you provide visa assistance?</span>
                         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, our dedicated visa support team provides comprehensive guidance, document checking, and application submission services for all destinations we operate in.</p>
+                        <p data-i18n="faq_4_a">Yes, our dedicated visa support team provides comprehensive guidance, document checking, and application submission services for all destinations we operate in.</p>
                     </div>
                 </div>
             </div>
@@ -1689,16 +1732,16 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info reveal">
-                    <h3>Get in Touch</h3>
-                    <p style="color: var(--muted); margin-bottom: 32px;">Ready to start planning your next luxury adventure? Our travel experts are here to craft your perfect itinerary.</p>
+                    <h3 data-i18n="sec_contact_title">Get in Touch</h3>
+                    <p style="color: var(--muted); margin-bottom: 32px;" data-i18n="sec_contact_subtitle">Ready to start planning your next luxury adventure? Our travel experts are here to craft your perfect itinerary.</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                             </div>
                             <div>
-                                <h4>Visit Us</h4>
-                                <p>123 Luxury Avenue, Suite 500<br>New York, NY 10001</p>
+                                <h4 data-i18n="contact_visit_title">Visit Us</h4>
+                                <p data-i18n="contact_visit_desc">123 Luxury Avenue, Suite 500<br>New York, NY 10001</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1706,7 +1749,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             </div>
                             <div>
-                                <h4>Call Us</h4>
+                                <h4 data-i18n="contact_call_title">Call Us</h4>
                                 <p><a href="tel:+12125551234">+1 (212) 555-1234</a></p>
                             </div>
                         </div>
@@ -1715,7 +1758,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                             </div>
                             <div>
-                                <h4>Email Us</h4>
+                                <h4 data-i18n="contact_email_title">Email Us</h4>
                                 <p><a href="mailto:concierge@luxevoyage.com">concierge@luxevoyage.com</a></p>
                             </div>
                         </div>
@@ -1724,7 +1767,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                             </div>
                             <div>
-                                <h4>WhatsApp & Telegram</h4>
+                                <h4 data-i18n="contact_whatsapp_title">WhatsApp & Telegram</h4>
                                 <p><a href="https://wa.me/12125551234">+1 (212) 555-1234</a></p>
                             </div>
                         </div>
@@ -1733,8 +1776,8 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                             </div>
                             <div>
-                                <h4>Working Hours</h4>
-                                <p>Mon - Fri: 9:00 AM - 8:00 PM<br>Sat - Sun: 10:00 AM - 6:00 PM</p>
+                                <h4 data-i18n="contact_hours_title">Working Hours</h4>
+                                <p data-i18n="contact_hours_desc">Mon - Fri: 9:00 AM - 8:00 PM<br>Sat - Sun: 10:00 AM - 6:00 PM</p>
                             </div>
                         </div>
                     </div>
@@ -1752,7 +1795,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">LUXE VOYAGE</a>
-                    <p>Crafting extraordinary travel experiences for the modern explorer. We believe in the transformative power of luxury travel.</p>
+                    <p data-i18n="footer_desc">Crafting extraordinary travel experiences for the modern explorer. We believe in the transformative power of luxury travel.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -1769,17 +1812,17 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Navigation</h4>
+                    <h4 data-i18n="footer_nav_title">Navigation</h4>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#destinations">Destinations</a></li>
-                        <li><a href="#tours">Tours</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                        <li><a href="#destinations" data-i18n="nav_destinations">Destinations</a></li>
+                        <li><a href="#tours" data-i18n="nav_tours">Tours</a></li>
+                        <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Top Destinations</h4>
+                    <h4 data-i18n="footer_dest_title">Top Destinations</h4>
                     <ul class="footer-links">
                         <li><a href="#">Maldives</a></li>
                         <li><a href="#">Santorini</a></li>
@@ -1789,21 +1832,213 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 16px;">Subscribe for exclusive offers and travel inspiration.</p>
+                    <h4 data-i18n="footer_newsletter_title">Newsletter</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 16px;" data-i18n="footer_newsletter_desc">Subscribe for exclusive offers and travel inspiration.</p>
                     <form class="newsletter-form" onsubmit="event.preventDefault();">
-                        <input type="email" placeholder="Your email address" required aria-label="Email for newsletter">
-                        <button type="submit">Join</button>
+                        <input type="email" data-i18n-placeholder="footer_newsletter_placeholder" placeholder="Your email address" required aria-label="Email for newsletter">
+                        <button type="submit" data-i18n="footer_newsletter_btn">Join</button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Luxe Voyage. All rights reserved. Designed with excellence.</p>
+                <p data-i18n="footer_copyright">&copy; 2026 Luxe Voyage. All rights reserved. Designed with excellence.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Translation Dictionary
+        const translations = {
+            en: {
+                nav_home: "Home", nav_destinations: "Destinations", nav_tours: "Tours", nav_flights: "Flights", nav_hotels: "Hotels", nav_visa: "Visa", nav_about: "About", nav_contact: "Contact",
+                btn_book_now: "Book Now", hero_title: "Discover the World's Most Exclusive Destinations", hero_subtitle: "Curated luxury travel experiences for the discerning explorer. Unforgettable journeys begin here.",
+                btn_explore_tours: "Explore Tours", btn_watch_video: "Watch Video", label_destination: "Destination", placeholder_destination: "Where to?", label_departure: "Departure", label_return: "Return", label_guests: "Guests",
+                opt_1_guest: "1 Guest", opt_2_guests: "2 Guests", opt_3_guests: "3 Guests", opt_4_guests: "4+ Guests", btn_search: "Search",
+                sec_popular_destinations_title: "Popular Destinations", sec_popular_destinations_subtitle: "Explore our handpicked selection of the world's most sought-after luxury destinations.",
+                badge_trending: "Trending", badge_luxury: "Luxury", badge_cultural: "Cultural",
+                dest_santorini_title: "Santorini, Greece", dest_santorini_desc: "Whitewashed villages, stunning sunsets, and crystal-clear Aegean waters await.", dest_santorini_price: "From $2,499",
+                dest_maldives_title: "Malé, Maldives", dest_maldives_desc: "Private overwater villas and pristine coral reefs in the ultimate tropical paradise.", dest_maldives_price: "From $3,899",
+                dest_kyoto_title: "Kyoto, Japan", dest_kyoto_desc: "Ancient temples, traditional ryokans, and the serene beauty of cherry blossom season.", dest_kyoto_price: "From $2,899",
+                per_person: "/ person", btn_book: "Book",
+                sec_featured_tours_title: "Featured Luxury Tours", sec_featured_tours_subtitle: "Immersive, all-inclusive journeys designed for comfort, discovery, and elegance.",
+                tour_swiss_title: "Swiss Alps Premium Retreat", tour_swiss_days: "7 Days", tour_swiss_hotel: "5-Star Hotel", tour_swiss_meals: "All Meals", tour_swiss_price: "$4,200",
+                tour_safari_title: "African Safari Luxury Camp", tour_safari_days: "10 Days", tour_safari_hotel: "Luxury Tents", tour_safari_flight: "Flight Included", tour_safari_price: "$5,800",
+                tour_caribbean_title: "Caribbean Private Yacht", tour_caribbean_days: "5 Days", tour_caribbean_yacht: "Private Yacht", tour_caribbean_board: "Full Board", tour_caribbean_price: "$6,500",
+                sec_why_choose_title: "Why Choose Luxe Voyage", sec_why_choose_subtitle: "We deliver exceptional service and unparalleled attention to detail for every journey.",
+                feature_licensed_title: "Licensed Agency", feature_licensed_desc: "Fully certified and accredited by international travel associations for your peace of mind.",
+                feature_price_title: "Best Price Guarantee", feature_price_desc: "We match any comparable luxury travel quote, ensuring you receive the ultimate value.",
+                feature_visa_title: "Visa Support", feature_visa_desc: "End-to-end assistance with visa applications, documentation, and embassy appointments.",
+                feature_support_title: "24/7 Global Support", feature_support_desc: "Round-the-clock concierge service to assist you anywhere in the world, anytime.",
+                feature_payment_title: "Secure Payments", feature_payment_desc: "Bank-level encryption and multiple secure payment options for complete transaction safety.",
+                feature_partners_title: "Trusted Partners", feature_partners_desc: "Exclusive collaborations with world-renowned hotels, airlines, and local guides.",
+                sec_offers_title: "Special Offers", sec_offers_subtitle: "Exclusive deals and limited-time packages for your next unforgettable getaway.",
+                offer_summer_title: "Summer Early Bird", offer_summer_desc: "Save up to 25% on Mediterranean coastal retreats when you book 60 days in advance.", offer_summer_btn: "View Deals",
+                offer_family_title: "Family Luxury Packages", offer_family_desc: "Kids stay and eat free at select 5-star family resorts across the globe.", offer_family_btn: "Explore",
+                sec_categories_title: "Travel by Category", sec_categories_subtitle: "Find the perfect style of travel that matches your dreams and desires.",
+                cat_beach: "Beach Holidays", cat_adventure: "Adventure", cat_luxury: "Luxury", cat_family: "Family", cat_business: "Business", cat_cruises: "Cruises", cat_honeymoon: "Honeymoon", cat_mountain: "Mountain",
+                sec_reviews_title: "Guest Experiences", sec_reviews_subtitle: "Hear from our discerning travelers about their unforgettable journeys with us.",
+                review_1_text: "\"Luxe Voyage orchestrated our honeymoon in the Maldives flawlessly. Every detail, from the private seaplane transfer to the candlelit dinner on the beach, was absolute perfection.\"", review_1_name: "Sarah Jenkins", review_1_country: "United Kingdom",
+                review_2_text: "\"The level of personalized service is unmatched. Our family safari in Kenya was educational, thrilling, and luxurious beyond our expectations. Highly recommended!\"", review_2_name: "Michael Ross", review_2_country: "United States",
+                review_3_text: "\"From the moment we inquired about our Kyoto trip, the support was exceptional. The traditional ryokan they booked for us was a highlight of our entire year.\"", review_3_name: "Elena Müller", review_3_country: "Germany",
+                stat_travelers: "Happy Travelers", stat_countries: "Countries Covered", stat_tours: "Luxury Tours", stat_years: "Years Experience",
+                sec_insta_title: "Follow Our Journey",
+                sec_faq_title: "Frequently Asked Questions", sec_faq_subtitle: "Everything you need to know about booking your luxury getaway.",
+                faq_1_q: "How far in advance should I book my luxury tour?", faq_1_a: "We recommend booking at least 3 to 6 months in advance for peak seasons and exclusive properties. However, we also specialize in curated last-minute luxury escapes.",
+                faq_2_q: "Are flights included in the tour packages?", faq_2_a: "Many of our premium packages include international business or first-class flights. Package details clearly specify what is included, and we can customize any itinerary to add flight arrangements.",
+                faq_3_q: "What is your cancellation policy?", faq_3_a: "We offer flexible cancellation terms. Most bookings can be canceled up to 45 days before departure for a full refund, minus a small administrative fee. Travel insurance is highly recommended.",
+                faq_4_q: "Do you provide visa assistance?", faq_4_a: "Yes, our dedicated visa support team provides comprehensive guidance, document checking, and application submission services for all destinations we operate in.",
+                sec_contact_title: "Get in Touch", sec_contact_subtitle: "Ready to start planning your next luxury adventure? Our travel experts are here to craft your perfect itinerary.",
+                contact_visit_title: "Visit Us", contact_visit_desc: "123 Luxury Avenue, Suite 500<br>New York, NY 10001",
+                contact_call_title: "Call Us", contact_email_title: "Email Us", contact_whatsapp_title: "WhatsApp & Telegram",
+                contact_hours_title: "Working Hours", contact_hours_desc: "Mon - Fri: 9:00 AM - 8:00 PM<br>Sat - Sun: 10:00 AM - 6:00 PM",
+                footer_desc: "Crafting extraordinary travel experiences for the modern explorer. We believe in the transformative power of luxury travel.",
+                footer_nav_title: "Navigation", footer_dest_title: "Top Destinations", footer_newsletter_title: "Newsletter", footer_newsletter_desc: "Subscribe for exclusive offers and travel inspiration.",
+                footer_newsletter_placeholder: "Your email address", footer_newsletter_btn: "Join", footer_copyright: "© 2026 Luxe Voyage. All rights reserved. Designed with excellence."
+            },
+            hy: {
+                nav_home: "Գլխավոր", nav_destinations: "Ուղղություններ", nav_tours: "Շրջագայություններ", nav_flights: "Ավիատոմսեր", nav_hotels: "Հյուրանոցներ", nav_visa: "Վիզա", nav_about: "Մեր մասին", nav_contact: "Կապ",
+                btn_book_now: "Ամրագրել", hero_title: "Բացահայտեք աշխարհի ամենաբացառիկ ուղղությունները", hero_subtitle: "Խնամքով ընտրված շքեղ ճանապարհորդական փորձառություններ պահանջկոտ ճանապարհորդների համար: Անմոռանալի ճանապարհորդությունները սկսվում են այստեղ:",
+                btn_explore_tours: "Դիտել շրջագայությունները", btn_watch_video: "Դիտել տեսանյութը", label_destination: "Ուղղություն", placeholder_destination: "Ո՞ւր եք ցանկանում մեկնել", label_departure: "Մեկնում", label_return: "Վերադարձ", label_guests: "Հյուրեր",
+                opt_1_guest: "1 հյուր", opt_2_guests: "2 հյուր", opt_3_guests: "3 հյուր", opt_4_guests: "4+ հյուր", btn_search: "Որոնել",
+                sec_popular_destinations_title: "Հայտնի ուղղություններ", sec_popular_destinations_subtitle: "Բացահայտեք մեր կողմից խնամքով ընտրված աշխարհի ամենացանկալի շքեղ ուղղությունները:",
+                badge_trending: "Հայտնի", badge_luxury: "Շքեղ", badge_cultural: "Մշակութային",
+                dest_santorini_title: "Սանտորինի, Հունաստան", dest_santorini_desc: "Սպիտակեցված գյուղեր, հրաշալի արևմուտք և Էգեյան ծովի բյուրեղապակյա ջրեր:", dest_santorini_price: "Սկսած $2,499-ից",
+                dest_maldives_title: "Մալե, Մալդիվներ", dest_maldives_desc: "Մասնավոր ջրային վիլլաներ և կուսական կորալյան խութեր արևադարձային դրախտում:", dest_maldives_price: "Սկսած $3,899-ից",
+                dest_kyoto_title: "Կիոտո, Ճապոնիա", dest_kyoto_desc: "Հին տաճարներ, ավանդական ռյոկաններ և սակուրայի ծաղկման հանգիստ գեղեցկությունը:", dest_kyoto_price: "Սկսած $2,899-ից",
+                per_person: "/ մեկ անձ", btn_book: "Ամրագրել",
+                sec_featured_tours_title: "Ընտրյալ շքեղ շրջագայություններ", sec_featured_tours_subtitle: "Խորը, ամեն ինչ ներառող ճանապարհորդություններ՝ նախատեսված հարմարավետության, հայտնագործությունների և էլեգանտության համար:",
+                tour_swiss_title: "Շվեյցարական Ալպերի պրեմիում հանգիստ", tour_swiss_days: "7 օր", tour_swiss_hotel: "5-աստղանի հյուրանոց", tour_swiss_meals: "Բոլոր սնունդները", tour_swiss_price: "$4,200",
+                tour_safari_title: "Աֆրիկյան սաֆարիի շքեղ ճամբար", tour_safari_days: "10 օր", tour_safari_hotel: "Շքեղ վրաններ", tour_safari_flight: "Ավիատոմսը ներառված է", tour_safari_price: "$5,800",
+                tour_caribbean_title: "Կարիբյան մասնավոր զբոսանավ", tour_caribbean_days: "5 օր", tour_caribbean_yacht: "Մասնավոր զբոսանավ", tour_caribbean_board: "Լիարժեք սնունդ", tour_caribbean_price: "$6,500",
+                sec_why_choose_title: "Ինչու ընտրել Luxe Voyage-ը", sec_why_choose_subtitle: "Մենք ապահովում ենք բացառիկ սպասարկում և աննախադեպ ուշադրություն մանրուքների նկատմամբ յուրաքանչյուր ճանապարհորդության ժամանակ:",
+                feature_licensed_title: "Լիցենզավորված գործակալություն", feature_licensed_desc: "Լիովին հավաստագրված և ճանաչված միջազգային զբոսաշրջային ասոցիացիաների կողմից՝ ձեր հանգստության համար:",
+                feature_price_title: "Լավագույն գնի երաշխիք", feature_price_desc: "Մենք համապատասխանեցնում ենք ցանկացած համադրելի շքեղ ճանապարհորդության գինը՝ ապահովելով առավելագույն արժեք:",
+                feature_visa_title: "Վիզային աջակցություն", feature_visa_desc: "Համապարփակ օգնություն վիզայի հայտերի, փաստաթղթերի և հյուպատոսարանի հանդիպումների կազմակերպման հարցում:",
+                feature_support_title: "24/7 Գլոբալ աջակցություն", feature_support_desc: "Կոնցիերժի շուրջօրյա սպասարկում՝ ձեզ աջակցելու աշխարհի ցանկացած վայրում, ցանկացած ժամ:",
+                feature_payment_title: "Անվտանգ վճարումներ", feature_payment_desc: "Բանկային մակարդակի գաղտնագրում և վճարման բազմաթիվ անվտանգ տարբերակներ՝ գործարքի լիարժեք անվտանգության համար:",
+                feature_partners_title: "Վստահելի գործընկերներ", feature_partners_desc: "Բացառիկ համագործակցություն համաշխարհային ճանաչում ունեցող հյուրանոցների, ավիաընկերությունների և տեղի ուղեցույցների հետ:",
+                sec_offers_title: "Հատուկ առաջարկներ", sec_offers_subtitle: "Բացառիկ զեղչեր և սահմանափակ ժամկետի փաթեթներ ձեր հաջորդ անմոռանալի հանգստի համար:",
+                offer_summer_title: "Ամառային վաղ ամրագրում", offer_summer_desc: "Խնայեք մինչև 25% Միջերկրածովյան ափամերձ հանգստավայրերից, երբ ամրագրում եք 60 օր առաջ:", offer_summer_btn: "Դիտել առաջարկները",
+                offer_family_title: "Ընտանեկան շքեղ փաթեթներ", offer_family_desc: "Երեխաները հանգստանում և սնվում են անվճար ընտրյալ 5-աստղանի ընտանեկան հանգստավայրերում ամբողջ աշխարհում:", offer_family_btn: "Բացահայտել",
+                sec_categories_title: "Ճանապարհորդություն ըստ կատեգորիայի", sec_categories_subtitle: "Գտեք ճանապարհորդության իդեալական ոճը, որը համապատասխանում է ձեր երազանքներին և ցանկություններին:",
+                cat_beach: "Լողափնյա հանգիստ", cat_adventure: "Արկածային", cat_luxury: "Շքեղ", cat_family: "Ընտանեկան", cat_business: "Գործնական", cat_cruises: "Զբոսանավեր", cat_honeymoon: "Մեղրամիս", cat_mountain: "Լեռնային",
+                sec_reviews_title: "Հյուրերի փորձառություններ", sec_reviews_subtitle: "Լսեք մեր պահանջկոտ ճանապարհորդներից նրանց անմոռանալի ճանապարհորդությունների մասին:",
+                review_1_text: "\"Luxe Voyage-ը անթերի կազմակերպեց մեր մեղրամիսը Մալդիվներում: Յուրաքանչյուր մանրուք, մասնավոր ջրային ինքնաթիռի տեղափոխումից մինչև մոմերով ընթրիքը լողափին, բացարձակ կատարելություն էր:\"", review_1_name: "Սառա Ջենկինս", review_1_country: "Միացյալ Թագավորություն",
+                review_2_text: "\"Անհատականացված սպասարկման մակարդակը անհամեմատելի է: Մեր ընտանեկան սաֆարին Քենիայում էր՝ ճանաչողական, հուզիչ և ավելի շքեղ, քան սպասում էինք: Խիստ խորհուրդ ենք տալիս:\"", review_2_name: "Մայքլ Ռոս", review_2_country: "ԱՄՆ",
+                review_3_text: "\"Այն պահից, երբ մենք հարցում արեցինք Կիոտոյի մեր ուղևորության վերաբերյալ, աջակցությունը բացառիկ էր: Ավանդական ռյոկանը, որը նրանք ամրագրեցին մեզ համար, մեր ամբողջ տարվա գլխավոր իրադարձությունն էր:\"", review_3_name: "Էլենա Մյուլլեր", review_3_country: "Գերմանիա",
+                stat_travelers: "Երջանիկ ճանապարհորդներ", stat_countries: "Երկրներ", stat_tours: "Շքեղ շրջագայություններ", stat_years: "Տարվա փորձ",
+                sec_insta_title: "Հետևեք մեր ճանապարհորդությանը",
+                sec_faq_title: "Հաճախ տրվող հարցեր", sec_faq_subtitle: "Այն ամենը, ինչ դուք պետք է իմանաք ձեր շքեղ հանգիստը ամրագրելու մասին:",
+                faq_1_q: "Որքա՞ն ժամանակ առաջ պետք է ամրագրեմ իմ շքեղ շրջագայությունը:", faq_1_a: "Մենք խորհուրդ ենք տալիս ամրագրել առնվազն 3-ից 6 ամիս առաջ՝ բարձր սեզոնների և բացառիկ հյուրանոցների համար: Սակայն մենք նաև մասնագիտացած ենք վերջին պահի շքեղ հանգստի կազմակերպման մեջ:",
+                faq_2_q: "Արդյո՞ք ավիատոմսերը ներառված են շրջագայության փաթեթներում:", faq_2_a: "Մեր պրեմիում փաթեթներից շատերը ներառում են միջազգային բիզնես կամ առաջին դասի թռիչքներ: Փաթեթի մանրամասները հստակ նշում են, թե ինչ է ներառված, և մենք կարող ենք անհատականացնել ցանկացած երթուղի՝ ավելացնելով թռիչքի կազմակերպում:",
+                faq_3_q: "Որքա՞ն են ձեր չեղարկման պայմանները:", faq_3_a: "Մենք առաջարկում ենք ճկուն չեղարկման պայմաններ: Ամրագրումների մեծ մասը կարող է չեղարկվել մեկնումից մինչև 45 օր առաջ՝ լիարժեք վերադարձով, հանած փոքր վարչական վճարը: Ճանապարհորդական ապահովագրությունը խիստ խորհուրդ է տրվում:",
+                faq_4_q: "Արդյո՞ք դուք տրամադրում եք վիզային աջակցություն:", faq_4_a: "Այո, մեր նվիրված վիզային աջակցության թիմը տրամադրում է համապարփակ ուղղորդում, փաստաթղթերի ստուգում և հայտերի ներկայացման ծառայություններ բոլոր այն ուղղությունների համար, որտեղ մենք գործում ենք:",
+                sec_contact_title: "Կապ հաստատեք մեզ հետ", sec_contact_subtitle: "Պատրա՞ստ եք սկսել ձեր հաջորդ շքեղ արկածի պլանավորումը: Մեր ճանապարհորդական փորձագետները պատրաստ են մշակել ձեր իդեալական երթուղին:",
+                contact_visit_title: "Այցելեք մեզ", contact_visit_desc: "123 Luxury Avenue, Suite 500<br>Նյու Յորք, NY 10001",
+                contact_call_title: "Զանգահարեք մեզ", contact_email_title: "Գրեք մեզ", contact_whatsapp_title: "WhatsApp և Telegram",
+                contact_hours_title: "Աշխատանքային ժամեր", contact_hours_desc: "Երկ - Ուրբ: 9:00 - 20:00<br>Շբթ - Կիր: 10:00 - 18:00",
+                footer_desc: "Ժամանակակից ճանապարհորդի համար բացառիկ ճանապարհորդական փորձառությունների ստեղծում: Մենք հավատում ենք շքեղ ճանապարհորդության ձևափոխող ուժին:",
+                footer_nav_title: "Նավիգացիա", footer_dest_title: "Լավագույն ուղղություններ", footer_newsletter_title: "Նորություններ", footer_newsletter_desc: "Բաժանորդագրվեք բացառիկ առաջարկների և ճանապարհորդական ոգեշնչման համար:",
+                footer_newsletter_placeholder: "Ձեր էլ. հասցեն", footer_newsletter_btn: "Միանալ", footer_copyright: "© 2026 Luxe Voyage. Բոլոր իրավունքները պաշտպանված են: Մշակված է գերազանցությամբ:"
+            },
+            ru: {
+                nav_home: "Главная", nav_destinations: "Направления", nav_tours: "Туры", nav_flights: "Авиабилеты", nav_hotels: "Отели", nav_visa: "Виза", nav_about: "О нас", nav_contact: "Контакты",
+                btn_book_now: "Забронировать", hero_title: "Откройте для себя самые эксклюзивные направления мира", hero_subtitle: "Курируемые роскошные путешествия для взыскательных исследователей. Незабываемые путешествия начинаются здесь.",
+                btn_explore_tours: "Смотреть туры", btn_watch_video: "Смотреть видео", label_destination: "Направление", placeholder_destination: "Куда вы хотите поехать?", label_departure: "Отправление", label_return: "Возвращение", label_guests: "Гости",
+                opt_1_guest: "1 гость", opt_2_guests: "2 гостя", opt_3_guests: "3 гостя", opt_4_guests: "4+ гостей", btn_search: "Поиск",
+                sec_popular_destinations_title: "Популярные направления", sec_popular_destinations_subtitle: "Откройте для себя нашу тщательно отобранную коллекцию самых желанных роскошных направлений мира.",
+                badge_trending: "Популярно", badge_luxury: "Роскошь", badge_cultural: "Культурный",
+                dest_santorini_title: "Санторини, Греция", dest_santorini_desc: "Белоснежные деревни, потрясающие закаты и кристально чистые воды Эгейского моря ждут вас.", dest_santorini_price: "От $2,499",
+                dest_maldives_title: "Мале, Мальдивы", dest_maldives_desc: "Частные водные виллы и нетронутые коралловые рифы в тропическом раю.", dest_maldives_price: "От $3,899",
+                dest_kyoto_title: "Киото, Япония", dest_kyoto_desc: "Древние храмы, традиционные рёканы и безмятежная красота сезона цветения сакуры.", dest_kyoto_price: "От $2,899",
+                per_person: "/ чел.", btn_book: "Забронировать",
+                sec_featured_tours_title: "Избранные роскошные туры", sec_featured_tours_subtitle: "Погружающие, все включено путешествия, созданные для комфорта, открытий и элегантности.",
+                tour_swiss_title: "Премиум отдых в Швейцарских Альпах", tour_swiss_days: "7 дней", tour_swiss_hotel: "5-звездочный отель", tour_swiss_meals: "Все питание", tour_swiss_price: "$4,200",
+                tour_safari_title: "Роскошный сафари-лагерь в Африке", tour_safari_days: "10 дней", tour_safari_hotel: "Роскошные палатки", tour_safari_flight: "Перелет включен", tour_safari_price: "$5,800",
+                tour_caribbean_title: "Частная яхта в Карибском море", tour_caribbean_days: "5 дней", tour_caribbean_yacht: "Частная яхта", tour_caribbean_board: "Полный пансион", tour_caribbean_price: "$6,500",
+                sec_why_choose_title: "Почему выбирают Luxe Voyage", sec_why_choose_subtitle: "Мы предоставляем исключительный сервис и беспрецедентное внимание к деталям в каждом путешествии.",
+                feature_licensed_title: "Лицензированное агентство", feature_licensed_desc: "Полностью сертифицировано и аккредитовано международными туристическими ассоциациями для вашего спокойствия.",
+                feature_price_title: "Гарантия лучшей цены", feature_price_desc: "Мы сравняем любое сопоставимое предложение по роскошным путешествиям, гарантируя максимальную ценность.",
+                feature_visa_title: "Визовая поддержка", feature_visa_desc: "Комплексная помощь в оформлении виз, подготовке документов и записи на прием в посольство.",
+                feature_support_title: "Глобальная поддержка 24/7", feature_support_desc: "Круглосуточное консьерж-обслуживание для помощи вам в любой точке мира в любое время.",
+                feature_payment_title: "Безопасные платежи", feature_payment_desc: "Шифрование банковского уровня и множество безопасных вариантов оплаты для полной безопасности транзакций.",
+                feature_partners_title: "Надежные партнеры", feature_partners_desc: "Эксклюзивное сотрудничество с всемирно известными отелями, авиакомпаниями и местными гидами.",
+                sec_offers_title: "Специальные предложения", sec_offers_subtitle: "Эксклюзивные предложения и пакеты с ограниченным сроком действия для вашего следующего незабываемого отдыха.",
+                offer_summer_title: "Раннее бронирование на лето", offer_summer_desc: "Сэкономьте до 25% на отдыхе на побережье Средиземного моря при бронировании за 60 дней.", offer_summer_btn: "Смотреть предложения",
+                offer_family_title: "Семейные роскошные пакеты", offer_family_desc: "Дети проживают и питаются бесплатно в избранных 5-звездочных семейных курортах по всему миру.", offer_family_btn: "Исследовать",
+                sec_categories_title: "Путешествия по категориям", sec_categories_subtitle: "Найдите идеальный стиль путешествия, который соответствует вашим мечтам и желаниям.",
+                cat_beach: "Пляжный отдых", cat_adventure: "Приключения", cat_luxury: "Роскошь", cat_family: "Семейный", cat_business: "Бизнес", cat_cruises: "Круизы", cat_honeymoon: "Медовый месяц", cat_mountain: "Горы",
+                sec_reviews_title: "Отзывы гостей", sec_reviews_subtitle: "Узнайте от наших взыскательных путешественников об их незабываемых путешествиях с нами.",
+                review_1_text: "\"Luxe Voyage безупречно организовали наш медовый месяц на Мальдивах. Каждая деталь, от трансфера на гидросамолете до ужина при свечах на пляже, была абсолютным совершенством.\"", review_1_name: "Сара Дженкинс", review_1_country: "Великобритания",
+                review_2_text: "\"Уровень персонализированного обслуживания не имеет аналогов. Наше семейное сафари в Кении было познавательным, захватывающим и более роскошным, чем мы ожидали. Настоятельно рекомендуем!\"", review_2_name: "Майкл Росс", review_2_country: "США",
+                review_3_text: "\"С момента нашего запроса о поездке в Киото поддержка была исключительной. Традиционный рёкан, который они забронировали для нас, стал главным событием всего года.\"", review_3_name: "Элена Мюллер", review_3_country: "Германия",
+                stat_travelers: "Счастливых путешественников", stat_countries: "Стран покрытия", stat_tours: "Роскошных туров", stat_years: "Лет опыта",
+                sec_insta_title: "Следите за нашими путешествиями",
+                sec_faq_title: "Часто задаваемые вопросы", sec_faq_subtitle: "Все, что вам нужно знать о бронировании вашего роскошного отдыха.",
+                faq_1_q: "За сколько времени следует бронировать роскошный тур?", faq_1_a: "Мы рекомендуем бронировать как минимум за 3-6 месяцев до поездки в высокий сезон и для эксклюзивных объектов. Однако мы также специализируемся на организации роскошного отдыха в последнюю минуту.",
+                faq_2_q: "Включены ли авиабилеты в пакеты туров?", faq_2_a: "Многие из наших премиум-пакетов включают международные перелеты бизнес- или первым классом. В деталях пакета четко указано, что включено, и мы можем настроить любой маршрут, добавив организацию перелета.",
+                faq_3_q: "Какова ваша политика отмены бронирования?", faq_3_a: "Мы предлагаем гибкие условия отмены. Большинство бронирований можно отменить за 45 дней до отъезда для получения полного возврата средств за вычетом небольшой административной платы. Настоятельно рекомендуется туристическая страховка.",
+                faq_4_q: "Предоставляете ли вы помощь в получении визы?", faq_4_a: "Да, наша специализированная команда визовой поддержки предоставляет комплексные консультации, проверку документов и услуги по подаче заявлений для всех направлений, в которых мы работаем.",
+                sec_contact_title: "Свяжитесь с нами", sec_contact_subtitle: "Готовы начать планировать ваше следующее роскошное приключение? Наши эксперты по путешествиям готовы создать ваш идеальный маршрут.",
+                contact_visit_title: "Посетите нас", contact_visit_desc: "123 Luxury Avenue, Suite 500<br>Нью-Йорк, NY 10001",
+                contact_call_title: "Позвоните нам", contact_email_title: "Напишите нам", contact_whatsapp_title: "WhatsApp и Telegram",
+                contact_hours_title: "Часы работы", contact_hours_desc: "Пн - Пт: 9:00 - 20:00<br>Сб - Вс: 10:00 - 18:00",
+                footer_desc: "Создание необыкновенных впечатлений от путешествий для современного исследователя. Мы верим в преобразующую силу роскошных путешествий.",
+                footer_nav_title: "Навигация", footer_dest_title: "Топ направлений", footer_newsletter_title: "Рассылка", footer_newsletter_desc: "Подпишитесь на эксклюзивные предложения и вдохновение для путешествий.",
+                footer_newsletter_placeholder: "Ваш email адрес", footer_newsletter_btn: "Подписаться", footer_copyright: "© 2026 Luxe Voyage. Все права защищены. Разработано с превосходством."
+            }
+        };
+
+        // Language Switcher Logic
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            
+            // Smooth fade effect
+            document.body.style.transition = 'opacity 0.15s ease';
+            document.body.style.opacity = '0.6';
+            
+            setTimeout(() => {
+                // Update text content
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+                
+                // Update placeholders
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                    const key = element.getAttribute('data-i18n-placeholder');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.placeholder = translations[lang][key];
+                    }
+                });
+
+                // Update active button state
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                document.body.style.opacity = '1';
+            }, 150);
+        }
+
+        // Initialize Language
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            setLanguage(savedLang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setLanguage(btn.getAttribute('data-lang'));
+                });
+            });
+        });
+
         // Sticky Header
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
@@ -1821,7 +2056,6 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -1893,7 +2127,6 @@
             updateSlider();
         });
 
-        // Auto-advance slider
         setInterval(() => {
             currentSlide = (currentSlide + 1) % totalSlides;
             updateSlider();
@@ -1905,11 +2138,7 @@
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
-                // Close all
                 faqItems.forEach(i => i.classList.remove('active'));
-                
-                // Open clicked if it wasn't active
                 if (!isActive) {
                     item.classList.add('active');
                 }
