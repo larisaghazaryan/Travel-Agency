@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Luxe Voyage - Premium luxury travel agency offering exclusive destinations, curated tours, and unforgettable experiences worldwide.">
     <title>Luxe Voyage | Premium Luxury Travel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,6 @@
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
         }
 
         body {
@@ -44,8 +43,6 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: opacity 0.2s ease;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -87,7 +84,6 @@
             cursor: pointer;
             transition: var(--transition);
             gap: 8px;
-            white-space: nowrap;
         }
 
         .btn-primary {
@@ -99,6 +95,17 @@
             background-color: #b8962e;
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
         }
 
         .btn-outline {
@@ -143,7 +150,7 @@
             transform: translateY(0);
         }
 
-        /* Header - FIXED LAYOUT */
+        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -151,50 +158,38 @@
             width: 100%;
             z-index: 1000;
             transition: var(--transition);
-            background: transparent;
+            padding: 20px 0;
         }
 
         .header.scrolled {
             background-color: var(--white);
             box-shadow: var(--shadow-sm);
+            padding: 12px 0;
         }
 
         .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 24px;
-            position: relative;
         }
 
-        .header.scrolled .header-inner {
-            padding: 15px 24px;
-        }
-
-        /* Logo - Left Side */
         .logo {
             font-family: 'Poppins', 'Noto Sans Armenian', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--white);
             letter-spacing: -0.5px;
-            z-index: 1002;
-            flex-shrink: 0;
         }
 
         .header.scrolled .logo {
             color: var(--primary);
         }
 
-        /* Desktop Navigation */
         .nav-menu {
             display: flex;
             align-items: center;
             gap: 32px;
             list-style: none;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .nav-link {
@@ -202,7 +197,6 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.9);
             position: relative;
-            white-space: nowrap;
         }
 
         .nav-link::after {
@@ -224,37 +218,50 @@
             color: var(--text);
         }
 
-        /* Header Actions - Right Side */
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
-            flex-shrink: 0;
+            gap: 20px;
         }
 
-        /* Language Switcher - Clean Design */
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .header.scrolled .icon-btn {
+            color: var(--primary);
+        }
+
+        /* Language Switcher */
         .lang-switcher {
             display: flex;
-            gap: 2px;
-            background: rgba(255, 255, 255, 0.2);
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.15);
             padding: 4px;
             border-radius: var(--radius-full);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .header.scrolled .lang-switcher {
-            background: rgba(14, 59, 67, 0.08);
-            border: 1px solid rgba(14, 59, 67, 0.15);
+            background: rgba(14, 59, 67, 0.05);
+            border: 1px solid rgba(14, 59, 67, 0.1);
         }
 
         .lang-btn {
             background: transparent;
             border: none;
-            color: rgba(255, 255, 255, 0.85);
-            padding: 6px 14px;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6px 12px;
             border-radius: var(--radius-full);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
@@ -271,36 +278,12 @@
             box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
         }
 
-        /* Book Now Button */
-        .btn-book {
-            background-color: var(--secondary);
-            color: var(--white);
-            padding: 12px 28px;
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-book:hover {
-            background-color: #b8962e;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Mobile Toggle */
         .mobile-toggle {
             display: none;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            z-index: 1003;
-            padding: 8px;
-            background: none;
-            border: none;
-            flex-shrink: 0;
+            z-index: 1001;
         }
 
         .mobile-toggle span {
@@ -308,23 +291,21 @@
             height: 2px;
             background-color: var(--white);
             transition: var(--transition);
-            border-radius: 2px;
         }
 
         .header.scrolled .mobile-toggle span {
             background-color: var(--primary);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             position: relative;
-            min-height: 100vh;
+            height: 100vh;
+            min-height: 700px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding-top: 100px;
-            padding-bottom: 60px;
         }
 
         .hero-bg {
@@ -351,10 +332,8 @@
             text-align: center;
             color: var(--white);
             max-width: 900px;
-            padding: 20px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
+            padding: 0 24px;
+            margin-top: -60px;
         }
 
         .hero-content h1 {
@@ -362,7 +341,6 @@
             color: var(--white);
             margin-bottom: 24px;
             animation: fadeUp 1s ease-out;
-            line-height: 1.1;
         }
 
         .hero-content p {
@@ -378,7 +356,6 @@
             justify-content: center;
             margin-bottom: 60px;
             animation: fadeUp 1s ease-out 0.4s backwards;
-            flex-wrap: wrap;
         }
 
         .booking-box {
@@ -420,7 +397,6 @@
             background: var(--white);
             outline: none;
             transition: var(--transition);
-            width: 100%;
         }
 
         .form-group input:focus, .form-group select:focus {
@@ -1161,264 +1137,52 @@
             animation: float 4s ease-in-out infinite;
         }
 
-        /* RESPONSIVE DESIGN */
-        
-        /* Large Tablet */
+        /* Responsive */
         @media (max-width: 1024px) {
-            .nav-menu {
-                position: static;
-                transform: none;
-            }
-            
-            .hero-content h1 { 
-                font-size: 3rem; 
-            }
-            
-            .booking-box { 
-                grid-template-columns: repeat(2, 1fr); 
-            }
-            
-            .booking-box .btn { 
-                grid-column: span 2; 
-            }
-            
-            .categories-grid { 
-                grid-template-columns: repeat(2, 1fr); 
-            }
-            
-            .stats-grid { 
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 40px; 
-            }
-            
-            .footer-grid { 
-                grid-template-columns: repeat(2, 1fr); 
-            }
-            
-            .insta-grid { 
-                grid-template-columns: repeat(3, 1fr); 
-            }
+            .hero-content h1 { font-size: 3rem; }
+            .booking-box { grid-template-columns: repeat(2, 1fr); }
+            .booking-box .btn { grid-column: span 2; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .insta-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
-            .header-inner {
-                padding: 15px 16px;
-            }
-            
-            .logo {
-                font-size: 1.4rem;
-            }
-            
+            .mobile-toggle { display: flex; }
             .nav-menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 width: 80%;
-                max-width: 320px;
+                max-width: 400px;
                 height: 100vh;
                 background: var(--white);
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 32px 32px;
+                padding: 100px 40px;
                 box-shadow: var(--shadow-lg);
                 transition: var(--transition);
-                z-index: 999;
-                gap: 24px;
-                overflow-y: auto;
+                align-items: flex-start;
+                z-index: 1000;
             }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .nav-link {
-                color: var(--text);
-                font-size: 1.1rem;
-                font-weight: 600;
-                width: 100%;
-            }
-            
-            .mobile-toggle {
-                display: flex;
-            }
-            
-            .lang-switcher {
-                display: none;
-            }
-            
-            .nav-menu .lang-switcher {
-                display: flex;
-                margin-top: 20px;
-                padding-top: 20px;
-                border-top: 1px solid #eee;
-                width: 100%;
-            }
-            
-            .hero {
-                padding-top: 80px;
-                padding-bottom: 40px;
-                min-height: auto;
-            }
-            
-            .hero-content {
-                padding: 16px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-                margin-bottom: 16px;
-            }
-            
-            .hero-content p {
-                font-size: 1rem;
-                margin-bottom: 24px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 12px;
-                margin-bottom: 32px;
-            }
-            
-            .hero-buttons .btn {
-                width: 100%;
-            }
-            
-            .booking-box {
-                grid-template-columns: 1fr;
-                padding: 20px;
-                gap: 16px;
-                margin: 0 16px;
-            }
-            
-            .booking-box .btn {
-                grid-column: span 1;
-                width: 100%;
-            }
-            
-            .form-group input,
-            .form-group select {
-                font-size: 16px;
-            }
-            
-            .section-padding {
-                padding: 60px 0;
-            }
-            
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-            
-            .section-header p {
-                font-size: 1rem;
-            }
-            
-            .offers-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            
-            .tours-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .categories-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-            
-            .stat-item h3 {
-                font-size: 2rem;
-            }
-            
-            .insta-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .nav-menu.active { right: 0; }
+            .nav-link { color: var(--text); font-size: 1.1rem; }
+            .header-actions .btn { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .booking-box { grid-template-columns: 1fr; }
+            .booking-box .btn { grid-column: span 1; }
+            .offers-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 2rem; }
+            .tours-grid { grid-template-columns: 1fr; }
         }
 
-        /* Small Mobile */
         @media (max-width: 480px) {
-            html {
-                font-size: 14px;
-            }
-            
-            .header-inner {
-                padding: 12px 12px;
-            }
-            
-            .logo {
-                font-size: 1.2rem;
-            }
-            
-            .hero-content h1 {
-                font-size: 1.75rem;
-            }
-            
-            .hero-content p {
-                font-size: 0.95rem;
-            }
-            
-            .booking-box {
-                padding: 16px;
-                margin: 0 12px;
-            }
-            
-            .form-group label {
-                font-size: 0.75rem;
-            }
-            
-            .form-group input,
-            .form-group select {
-                padding: 10px 12px;
-            }
-            
-            .btn {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Touch device optimizations */
-        @media (hover: none) {
-            .btn:hover {
-                transform: none;
-            }
-            
-            .destination-card:hover,
-            .tour-card:hover,
-            .feature-card:hover {
-                transform: none;
-            }
-        }
-
-        /* Safe area for notched devices */
-        @supports (padding: max(0px)) {
-            .header-inner {
-                padding-left: max(24px, env(safe-area-inset-left));
-                padding-right: max(24px, env(safe-area-inset-right));
-            }
-            
-            .hero {
-                padding-top: max(100px, env(safe-area-inset-top));
-            }
+            .hero-content h1 { font-size: 2rem; }
+            .categories-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .insta-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -1428,7 +1192,6 @@
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="#" class="logo">LUXE VOYAGE</a>
-            
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
@@ -1439,29 +1202,23 @@
                     <li><a href="#visa" class="nav-link" data-i18n="nav_visa">Visa</a></li>
                     <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
                     <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
-                    <!-- Language switcher in mobile menu -->
-                    <li style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; width: 100%;">
-                        <div class="lang-switcher">
-                            <button class="lang-btn active" data-lang="en">EN</button>
-                            <button class="lang-btn" data-lang="hy">HY</button>
-                            <button class="lang-btn" data-lang="ru">RU</button>
-                        </div>
-                    </li>
                 </ul>
             </nav>
-            
             <div class="header-actions">
+                <button class="icon-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
                 <div class="lang-switcher">
                     <button class="lang-btn active" data-lang="en">EN</button>
                     <button class="lang-btn" data-lang="hy">HY</button>
                     <button class="lang-btn" data-lang="ru">RU</button>
                 </div>
-                <button class="btn-book" data-i18n="btn_book_now">Book Now</button>
-                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <a href="#book" class="btn btn-primary" data-i18n="btn_book_now">Book Now</a>
+                <div class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </button>
+                </div>
             </div>
         </div>
     </header>
@@ -1475,6 +1232,10 @@
             <p data-i18n="hero_subtitle">Curated luxury travel experiences for the discerning explorer. Unforgettable journeys begin here.</p>
             <div class="hero-buttons">
                 <a href="#tours" class="btn btn-primary" data-i18n="btn_explore_tours">Explore Tours</a>
+                <a href="#video" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <span data-i18n="btn_watch_video">Watch Video</span>
+                </a>
             </div>
             <div class="booking-box floating">
                 <div class="form-group">
@@ -2091,7 +1852,7 @@
             en: {
                 nav_home: "Home", nav_destinations: "Destinations", nav_tours: "Tours", nav_flights: "Flights", nav_hotels: "Hotels", nav_visa: "Visa", nav_about: "About", nav_contact: "Contact",
                 btn_book_now: "Book Now", hero_title: "Discover the World's Most Exclusive Destinations", hero_subtitle: "Curated luxury travel experiences for the discerning explorer. Unforgettable journeys begin here.",
-                btn_explore_tours: "Explore Tours", label_destination: "Destination", placeholder_destination: "Where to?", label_departure: "Departure", label_return: "Return", label_guests: "Guests",
+                btn_explore_tours: "Explore Tours", btn_watch_video: "Watch Video", label_destination: "Destination", placeholder_destination: "Where to?", label_departure: "Departure", label_return: "Return", label_guests: "Guests",
                 opt_1_guest: "1 Guest", opt_2_guests: "2 Guests", opt_3_guests: "3 Guests", opt_4_guests: "4+ Guests", btn_search: "Search",
                 sec_popular_destinations_title: "Popular Destinations", sec_popular_destinations_subtitle: "Explore our handpicked selection of the world's most sought-after luxury destinations.",
                 badge_trending: "Trending", badge_luxury: "Luxury", badge_cultural: "Cultural",
@@ -2136,8 +1897,8 @@
             },
             hy: {
                 nav_home: "Գլխավոր", nav_destinations: "Ուղղություններ", nav_tours: "Շրջագայություններ", nav_flights: "Ավիատոմսեր", nav_hotels: "Հյուրանոցներ", nav_visa: "Վիզա", nav_about: "Մեր մասին", nav_contact: "Կապ",
-                btn_book_now: "Ամրագրել", hero_title: "Բացահայտեք աշխարհի ամենաբացառիկ ուղղությունները", hero_subtitle: "Խնամքով ընտրված քեղ ճանապարհորդական փորձառություններ պահանջկոտ անապարհորդների համար: Անմոռանալի ճանապարհորդությունները սկսվում են այստեղ:",
-                btn_explore_tours: "Դիտել շրջագայությունները", label_destination: "ւղղություն", placeholder_destination: "՞ւր եք ցանկանում մեկնել", label_departure: "Մեկնում", label_return: "Վերադարձ", label_guests: "Հյուրեր",
+                btn_book_now: "Ամրագրել", hero_title: "Բացահայտեք աշխարհի ամենաբացառիկ ուղղությունները", hero_subtitle: "Խնամքով ընտրված շքեղ ճանապարհորդական փորձառություններ պահանջկոտ ճանապարհորդների համար: Անմոռանալի ճանապարհորդությունները սկսվում են այստեղ:",
+                btn_explore_tours: "Դիտել շրջագայությունները", btn_watch_video: "Դիտել տեսանյութը", label_destination: "Ուղղություն", placeholder_destination: "Ո՞ւր եք ցանկանում մեկնել", label_departure: "Մեկնում", label_return: "Վերադարձ", label_guests: "Հյուրեր",
                 opt_1_guest: "1 հյուր", opt_2_guests: "2 հյուր", opt_3_guests: "3 հյուր", opt_4_guests: "4+ հյուր", btn_search: "Որոնել",
                 sec_popular_destinations_title: "Հայտնի ուղղություններ", sec_popular_destinations_subtitle: "Բացահայտեք մեր կողմից խնամքով ընտրված աշխարհի ամենացանկալի շքեղ ուղղությունները:",
                 badge_trending: "Հայտնի", badge_luxury: "Շքեղ", badge_cultural: "Մշակութային",
@@ -2145,45 +1906,45 @@
                 dest_maldives_title: "Մալե, Մալդիվներ", dest_maldives_desc: "Մասնավոր ջրային վիլլաներ և կուսական կորալյան խութեր արևադարձային դրախտում:", dest_maldives_price: "Սկսած $3,899-ից",
                 dest_kyoto_title: "Կիոտո, Ճապոնիա", dest_kyoto_desc: "Հին տաճարներ, ավանդական ռյոկաններ և սակուրայի ծաղկման հանգիստ գեղեցկությունը:", dest_kyoto_price: "Սկսած $2,899-ից",
                 per_person: "/ մեկ անձ", btn_book: "Ամրագրել",
-                sec_featured_tours_title: "Ընտրյալ քեղ շրջագայություններ", sec_featured_tours_subtitle: "Խորը, ամեն ինչ ներառող անապարհորդություններ նախատեսված հարմարավետության, հայտնագործությունների և էլեգանտության համար:",
+                sec_featured_tours_title: "Ընտրյալ շքեղ շրջագայություններ", sec_featured_tours_subtitle: "Խորը, ամեն ինչ ներառող ճանապարհորդություններ՝ նախատեսված հարմարավետության, հայտնագործությունների և էլեգանտության համար:",
                 tour_swiss_title: "Շվեյցարական Ալպերի պրեմիում հանգիստ", tour_swiss_days: "7 օր", tour_swiss_hotel: "5-աստղանի հյուրանոց", tour_swiss_meals: "Բոլոր սնունդները", tour_swiss_price: "$4,200",
-                tour_safari_title: "Աֆրիկյան սաարիի շքեղ ճամբար", tour_safari_days: "10 օր", tour_safari_hotel: "Շքեղ վրաններ", tour_safari_flight: "Ավիատոմսը ներառված է", tour_safari_price: "$5,800",
+                tour_safari_title: "Աֆրիկյան սաֆարիի շքեղ ճամբար", tour_safari_days: "10 օր", tour_safari_hotel: "Շքեղ վրաններ", tour_safari_flight: "Ավիատոմսը ներառված է", tour_safari_price: "$5,800",
                 tour_caribbean_title: "Կարիբյան մասնավոր զբոսանավ", tour_caribbean_days: "5 օր", tour_caribbean_yacht: "Մասնավոր զբոսանավ", tour_caribbean_board: "Լիարժեք սնունդ", tour_caribbean_price: "$6,500",
                 sec_why_choose_title: "Ինչու ընտրել Luxe Voyage-ը", sec_why_choose_subtitle: "Մենք ապահովում ենք բացառիկ սպասարկում և աննախադեպ ուշադրություն մանրուքների նկատմամբ յուրաքանչյուր ճանապարհորդության ժամանակ:",
                 feature_licensed_title: "Լիցենզավորված գործակալություն", feature_licensed_desc: "Լիովին հավաստագրված և ճանաչված միջազգային զբոսաշրջային ասոցիացիաների կողմից՝ ձեր հանգստության համար:",
-                feature_price_title: "Լավագույն գնի երաշխիք", feature_price_desc: "Մենք համապատասխանեցնում ենք ցանկացած համադրելի քեղ ճանապարհորդության գինը՝ ապահովելով առավելագույն արեք:",
+                feature_price_title: "Լավագույն գնի երաշխիք", feature_price_desc: "Մենք համապատասխանեցնում ենք ցանկացած համադրելի շքեղ ճանապարհորդության գինը՝ ապահովելով առավելագույն արժեք:",
                 feature_visa_title: "Վիզային աջակցություն", feature_visa_desc: "Համապարփակ օգնություն վիզայի հայտերի, փաստաթղթերի և հյուպատոսարանի հանդիպումների կազմակերպման հարցում:",
                 feature_support_title: "24/7 Գլոբալ աջակցություն", feature_support_desc: "Կոնցիերժի շուրջօրյա սպասարկում՝ ձեզ աջակցելու աշխարհի ցանկացած վայրում, ցանկացած ժամ:",
-                feature_payment_title: "Անվտանգ վճարումներ", feature_payment_desc: "Բանկային մակարդակի գաղտնագրում և վճարման բազմաթիվ անվտանգ տարբերակներ գործարքի լիարժեք անվտանգության համար:",
+                feature_payment_title: "Անվտանգ վճարումներ", feature_payment_desc: "Բանկային մակարդակի գաղտնագրում և վճարման բազմաթիվ անվտանգ տարբերակներ՝ գործարքի լիարժեք անվտանգության համար:",
                 feature_partners_title: "Վստահելի գործընկերներ", feature_partners_desc: "Բացառիկ համագործակցություն համաշխարհային ճանաչում ունեցող հյուրանոցների, ավիաընկերությունների և տեղի ուղեցույցների հետ:",
-                sec_offers_title: "Հատուկ առաջարկներ", sec_offers_subtitle: "ացառիկ զեղչեր և սահմանափակ ժամկետի փաթեթներ ձեր հաջորդ անմոռանալի հանգստի համար:",
+                sec_offers_title: "Հատուկ առաջարկներ", sec_offers_subtitle: "Բացառիկ զեղչեր և սահմանափակ ժամկետի փաթեթներ ձեր հաջորդ անմոռանալի հանգստի համար:",
                 offer_summer_title: "Ամառային վաղ ամրագրում", offer_summer_desc: "Խնայեք մինչև 25% Միջերկրածովյան ափամերձ հանգստավայրերից, երբ ամրագրում եք 60 օր առաջ:", offer_summer_btn: "Դիտել առաջարկները",
-                offer_family_title: "Ընտանեկան շքեղ փաթեթներ", offer_family_desc: "Երեխաները հանգստանում և սնվում են անվճար ընտրյալ 5-աստղանի նտանեկան հանգստավայրերում ամբողջ աշխարհում:", offer_family_btn: "Բացահայտել",
+                offer_family_title: "Ընտանեկան շքեղ փաթեթներ", offer_family_desc: "Երեխաները հանգստանում և սնվում են անվճար ընտրյալ 5-աստղանի ընտանեկան հանգստավայրերում ամբողջ աշխարհում:", offer_family_btn: "Բացահայտել",
                 sec_categories_title: "Ճանապարհորդություն ըստ կատեգորիայի", sec_categories_subtitle: "Գտեք ճանապարհորդության իդեալական ոճը, որը համապատասխանում է ձեր երազանքներին և ցանկություններին:",
                 cat_beach: "Լողափնյա հանգիստ", cat_adventure: "Արկածային", cat_luxury: "Շքեղ", cat_family: "Ընտանեկան", cat_business: "Գործնական", cat_cruises: "Զբոսանավեր", cat_honeymoon: "Մեղրամիս", cat_mountain: "Լեռնային",
-                sec_reviews_title: "Հյուրերի փորձառություններ", sec_reviews_subtitle: "սեք մեր պահանջկոտ ճանապարհորդներից նրանց անմոռանալի ճանապարհորդությունների մասին:",
-                review_1_text: "\"Luxe Voyage-ը անթերի կազմակերպեց մեր մեղրամիսը Մալդիվներում: Յուրաքանչյուր մանրուք, մասնավոր ջրային ինքնաթիռի տեղափոխումից մինչև մոմերով ընթրիքը լողափին, բացարձակ կատարելություն էր:\"", review_1_name: "առա Ջենկինս", review_1_country: "Միացյալ Թագավորություն",
+                sec_reviews_title: "Հյուրերի փորձառություններ", sec_reviews_subtitle: "Լսեք մեր պահանջկոտ ճանապարհորդներից նրանց անմոռանալի ճանապարհորդությունների մասին:",
+                review_1_text: "\"Luxe Voyage-ը անթերի կազմակերպեց մեր մեղրամիսը Մալդիվներում: Յուրաքանչյուր մանրուք, մասնավոր ջրային ինքնաթիռի տեղափոխումից մինչև մոմերով ընթրիքը լողափին, բացարձակ կատարելություն էր:\"", review_1_name: "Սառա Ջենկինս", review_1_country: "Միացյալ Թագավորություն",
                 review_2_text: "\"Անհատականացված սպասարկման մակարդակը անհամեմատելի է: Մեր ընտանեկան սաֆարին Քենիայում էր՝ ճանաչողական, հուզիչ և ավելի շքեղ, քան սպասում էինք: Խիստ խորհուրդ ենք տալիս:\"", review_2_name: "Մայքլ Ռոս", review_2_country: "ԱՄՆ",
-                review_3_text: "\"Այն պահից, երբ մենք հարցում արեցինք Կիոտոյի մեր ուղևորության վերաբերյալ, աջակցությունը բացառիկ էր: Ավանդական ռյոկանը, որը նրանք ամրագրեցին մեզ համար, մեր ամբողջ տարվա գլխավոր իրադարձությունն էր:\"", review_3_name: "լենա Մյուլլեր", review_3_country: "Գերմանիա",
+                review_3_text: "\"Այն պահից, երբ մենք հարցում արեցինք Կիոտոյի մեր ուղևորության վերաբերյալ, աջակցությունը բացառիկ էր: Ավանդական ռյոկանը, որը նրանք ամրագրեցին մեզ համար, մեր ամբողջ տարվա գլխավոր իրադարձությունն էր:\"", review_3_name: "Էլենա Մյուլլեր", review_3_country: "Գերմանիա",
                 stat_travelers: "Երջանիկ ճանապարհորդներ", stat_countries: "Երկրներ", stat_tours: "Շքեղ շրջագայություններ", stat_years: "Տարվա փորձ",
                 sec_insta_title: "Հետևեք մեր ճանապարհորդությանը",
                 sec_faq_title: "Հաճախ տրվող հարցեր", sec_faq_subtitle: "Այն ամենը, ինչ դուք պետք է իմանաք ձեր շքեղ հանգիստը ամրագրելու մասին:",
-                faq_1_q: "Որքա՞ն ժամանակ առաջ պետք է ամրագրեմ մ շքեղ շրջագայությունը:", faq_1_a: "Մենք խորհուրդ ենք տալիս ամրագրել առնվազն 3-ից 6 ամիս առաջ՝ բարձր սեզոնների և բացառիկ հյուրանոցների համար: Սակայն մենք նաև մասնագիտացած ենք վերջին պահի շքեղ հանգստի կազմակերպման մեջ:",
-                faq_2_q: "Արդյո՞ք ավիատոմսերը ներառված են րջագայության փաթեթներում:", faq_2_a: "Մեր պրեմիում փաթեթներից շատերը ներառում են միջազգային բիզնես կամ առաջին դասի թռիչքներ: Փաթեթի մանրամասները հստակ նշում են, թե ինչ է ներառված, և մենք կարող ենք անհատականացնել ցանկացած երթուղի՝ ավելացնելով թռիչքի կազմակերպում:",
-                faq_3_q: "Որքա՞ն են ձեր չեղարկման պայմանները:", faq_3_a: "Մենք առաջարկում ենք կուն չեղարկման պայմաններ: Ամրագրումների մեծ մասը կարող է չեղարկվել մեկնումից մինչև 45 ր առաջ՝ լիարժեք վերադարձով, հանած փոքր վարչական վճարը: Ճանապարհորդական ապահովագրությունը խիստ խորհուրդ է տրվում:",
+                faq_1_q: "Որքա՞ն ժամանակ առաջ պետք է ամրագրեմ իմ շքեղ շրջագայությունը:", faq_1_a: "Մենք խորհուրդ ենք տալիս ամրագրել առնվազն 3-ից 6 ամիս առաջ՝ բարձր սեզոնների և բացառիկ հյուրանոցների համար: Սակայն մենք նաև մասնագիտացած ենք վերջին պահի շքեղ հանգստի կազմակերպման մեջ:",
+                faq_2_q: "Արդյո՞ք ավիատոմսերը ներառված են շրջագայության փաթեթներում:", faq_2_a: "Մեր պրեմիում փաթեթներից շատերը ներառում են միջազգային բիզնես կամ առաջին դասի թռիչքներ: Փաթեթի մանրամասները հստակ նշում են, թե ինչ է ներառված, և մենք կարող ենք անհատականացնել ցանկացած երթուղի՝ ավելացնելով թռիչքի կազմակերպում:",
+                faq_3_q: "Որքա՞ն են ձեր չեղարկման պայմանները:", faq_3_a: "Մենք առաջարկում ենք ճկուն չեղարկման պայմաններ: Ամրագրումների մեծ մասը կարող է չեղարկվել մեկնումից մինչև 45 օր առաջ՝ լիարժեք վերադարձով, հանած փոքր վարչական վճարը: Ճանապարհորդական ապահովագրությունը խիստ խորհուրդ է տրվում:",
                 faq_4_q: "Արդյո՞ք դուք տրամադրում եք վիզային աջակցություն:", faq_4_a: "Այո, մեր նվիրված վիզային աջակցության թիմը տրամադրում է համապարփակ ուղղորդում, փաստաթղթերի ստուգում և հայտերի ներկայացման ծառայություններ բոլոր այն ուղղությունների համար, որտեղ մենք գործում ենք:",
-                sec_contact_title: "Կապ հաստատեք մեզ հետ", sec_contact_subtitle: "Պատրա՞ստ եք սկսել ձեր հաջորդ շքեղ արկածի պլանավորումը: Մեր ճանապարհորդական փորձագետները պատրաստ են մշակել ձեր դեալական երթուղին:",
+                sec_contact_title: "Կապ հաստատեք մեզ հետ", sec_contact_subtitle: "Պատրա՞ստ եք սկսել ձեր հաջորդ շքեղ արկածի պլանավորումը: Մեր ճանապարհորդական փորձագետները պատրաստ են մշակել ձեր իդեալական երթուղին:",
                 contact_visit_title: "Այցելեք մեզ", contact_visit_desc: "123 Luxury Avenue, Suite 500<br>Նյու Յորք, NY 10001",
-                contact_call_title: "Զանգահարեք մեզ", contact_email_title: "րեք մեզ", contact_whatsapp_title: "WhatsApp և Telegram",
-                contact_hours_title: "Աշխատանքային ամեր", contact_hours_desc: "Երկ - Ուրբ: 9:00 - 20:00<br>Շբթ - Կիր: 10:00 - 18:00",
+                contact_call_title: "Զանգահարեք մեզ", contact_email_title: "Գրեք մեզ", contact_whatsapp_title: "WhatsApp և Telegram",
+                contact_hours_title: "Աշխատանքային ժամեր", contact_hours_desc: "Երկ - Ուրբ: 9:00 - 20:00<br>Շբթ - Կիր: 10:00 - 18:00",
                 footer_desc: "Ժամանակակից ճանապարհորդի համար բացառիկ ճանապարհորդական փորձառությունների ստեղծում: Մենք հավատում ենք շքեղ ճանապարհորդության ձևափոխող ուժին:",
-                footer_nav_title: "Նավիգացիա", footer_dest_title: "Լավագույն ուղղություններ", footer_newsletter_title: "Նորություններ", footer_newsletter_desc: "Բաանորդագրվեք բացառիկ առաջարկների և ճանապարհորդական ոգեշնչման համար:",
+                footer_nav_title: "Նավիգացիա", footer_dest_title: "Լավագույն ուղղություններ", footer_newsletter_title: "Նորություններ", footer_newsletter_desc: "Բաժանորդագրվեք բացառիկ առաջարկների և ճանապարհորդական ոգեշնչման համար:",
                 footer_newsletter_placeholder: "Ձեր էլ. հասցեն", footer_newsletter_btn: "Միանալ", footer_copyright: "© 2026 Luxe Voyage. Բոլոր իրավունքները պաշտպանված են: Մշակված է գերազանցությամբ:"
             },
             ru: {
                 nav_home: "Главная", nav_destinations: "Направления", nav_tours: "Туры", nav_flights: "Авиабилеты", nav_hotels: "Отели", nav_visa: "Виза", nav_about: "О нас", nav_contact: "Контакты",
                 btn_book_now: "Забронировать", hero_title: "Откройте для себя самые эксклюзивные направления мира", hero_subtitle: "Курируемые роскошные путешествия для взыскательных исследователей. Незабываемые путешествия начинаются здесь.",
-                btn_explore_tours: "Смотреть туры", label_destination: "Направление", placeholder_destination: "Куда вы хотите поехать?", label_departure: "Отправление", label_return: "Возвращение", label_guests: "Гости",
+                btn_explore_tours: "Смотреть туры", btn_watch_video: "Смотреть видео", label_destination: "Направление", placeholder_destination: "Куда вы хотите поехать?", label_departure: "Отправление", label_return: "Возвращение", label_guests: "Гости",
                 opt_1_guest: "1 гость", opt_2_guests: "2 гостя", opt_3_guests: "3 гостя", opt_4_guests: "4+ гостей", btn_search: "Поиск",
                 sec_popular_destinations_title: "Популярные направления", sec_popular_destinations_subtitle: "Откройте для себя нашу тщательно отобранную коллекцию самых желанных роскошных направлений мира.",
                 badge_trending: "Популярно", badge_luxury: "Роскошь", badge_cultural: "Культурный",
@@ -2233,10 +1994,12 @@
             document.documentElement.lang = lang;
             localStorage.setItem('selectedLanguage', lang);
             
+            // Smooth fade effect
             document.body.style.transition = 'opacity 0.15s ease';
             document.body.style.opacity = '0.6';
             
             setTimeout(() => {
+                // Update text content
                 document.querySelectorAll('[data-i18n]').forEach(element => {
                     const key = element.getAttribute('data-i18n');
                     if (translations[lang] && translations[lang][key]) {
@@ -2244,6 +2007,7 @@
                     }
                 });
                 
+                // Update placeholders
                 document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
                     const key = element.getAttribute('data-i18n-placeholder');
                     if (translations[lang] && translations[lang][key]) {
@@ -2251,6 +2015,7 @@
                     }
                 });
 
+                // Update active button state
                 document.querySelectorAll('.lang-btn').forEach(btn => {
                     btn.classList.remove('active');
                     if (btn.getAttribute('data-lang') === lang) {
@@ -2287,25 +2052,14 @@
         // Mobile Menu Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
-        
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
 
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
-                document.body.style.overflow = '';
             });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
         });
 
         // Scroll Reveal Animation
