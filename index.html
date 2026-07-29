@@ -36,6 +36,11 @@
             scroll-behavior: smooth;
         }
  
+        /* Keeps anchor-jumped sections from landing under the fixed header */
+        section[id] {
+            scroll-margin-top: 90px;
+        }
+ 
         body {
             font-family: 'Inter', 'Noto Sans Armenian', sans-serif;
             background-color: var(--background);
@@ -2298,3 +2303,4 @@
     </script>
 </body>
 </html>
+ 
